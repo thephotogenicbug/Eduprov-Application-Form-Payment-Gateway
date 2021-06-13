@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 
 
-function loadScript(src) {
+const loadScript = (src) => {
 	return new Promise((resolve) => {
 		const script = document.createElement('script')
 		script.src = src
@@ -18,24 +18,36 @@ function loadScript(src) {
 
 const __DEV__ = document.domain === 'localhost'
 
-function Payment() {
+const Payment = () => {
 	const [name, setName] = useState([]);
+	const [email, setEmail] = useState([]);
+	const [number, setNumber] = useState([]);
 	const [payment, setPayment] = useState(false);
 	const [orderId, setOrderId] = useState('');
 	const [paymentId, setPaymentId] = useState('');
 	const [signature, setSignature] = useState('');
+	const [isOthers, setOthers] = useState(false);
+	const [isMedical, setMedical] = useState(false);
+	const [isEng, setEng] = useState(false);
+	
 
+
+
+	
 	// Other Course Function
-	async function displayRazorpay() {
+	  const  displayRazorpay = async () =>  {
+		setOthers(true)
 		const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
-
+   
 		if (!res) {
 			alert('Razorpay SDK failed to load. Are you online?')
 			return
 		}
-
+		
 		const data = await fetch('https://serverless-payment.herokuapp.com/razorpay', { method: 'POST' }).then((t) =>
-			t.json()
+			t.json(),
+	
+
 		)
 
 
@@ -55,19 +67,24 @@ function Payment() {
 				setPaymentId(response.razorpay_payment_id)
 				setSignature(response.razorpay_signature)
 				setPayment(true)
+				
+			
 
 			},
 			prefill: {
 				name,
-				email: '',
+				email,
 				phone_number: ''
 			}
 		}
 		const paymentObject = new window.Razorpay(options)
+		
 		paymentObject.open()
 	};
+
 	// Medical Function
-	async function Medical() {
+	 const  Medical = async () => {
+		setMedical(true)
 		const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
 
 		if (!res) {
@@ -76,7 +93,8 @@ function Payment() {
 		}
 
 		const data = await fetch('https://serverless-payment.herokuapp.com/razorpay/medical', { method: 'POST' }).then((t) =>
-			t.json()
+			t.json(),
+			
 		)
 
 
@@ -108,8 +126,11 @@ function Payment() {
 		paymentObject.open()
 	};
 
+	
+
 	// Eng Function
-	async function Eng() {
+	 const Eng  =  async ()=> {
+		setEng(true)
 		const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
 
 		if (!res) {
@@ -118,7 +139,8 @@ function Payment() {
 		}
 
 		const data = await fetch('https://serverless-payment.herokuapp.com/razorpay/engineering', { method: 'POST' }).then((t) =>
-			t.json()
+			t.json(),
+			
 		)
 
 
@@ -139,6 +161,7 @@ function Payment() {
 				setSignature(response.razorpay_signature)
 				setPayment(true)
 
+
 			},
 			prefill: {
 				name,
@@ -151,7 +174,10 @@ function Payment() {
 	};
 
 
+	//setTimeout(()=> window.location.reload(), 1000);
+
 	return (
+		
 		
 		<div className="bg-primary" id="Banner">
 			
@@ -165,24 +191,24 @@ function Payment() {
 			   </div>
 			   <div className="col-md-12" id="order">
 			   <p>Signature: <br/>{signature}</p>
+			
 			   </div>
 		   </div>
 	      <div className="container">
 		
 		 <div className="" id="Cards">
-        
+         
         </div>
 			<div className="row ">
 			<div className="col-md-4">
+				   
 					<div className="card border-success m-2">
 					<div className="card-header">
 					Other Course
 					</div>
 						<div className="card-body ">
-						 
-					
-
-						 <button className="btn btn-primary mt-5" onClick={displayRazorpay}>Rs 2500</button>
+						{  !isOthers ? <button className="btn btn-primary mt-5"  onClick={displayRazorpay}> Rs 2500</button> :  !payment  ? <button className="btn btn-danger mt-5" >Please wait processing</button>  :    <button className="btn btn-success mt-5">Payment Success</button>    }
+						
 						</div>
 						
 					</div>
@@ -193,8 +219,8 @@ function Payment() {
 					Engineering Course
 					</div>
 						<div className="card-body ">
-                          
-						<button className="btn btn-primary mt-5" onClick={Eng}>Rs 5500</button>
+						{  !isEng ? <button className="btn btn-primary mt-5" onClick={Eng}> Rs 5500</button> :  !payment  ? <button className="btn btn-danger mt-5" >Please wait processing</button>  :    <button className="btn btn-success mt-5">Payment Success</button>    }
+						
 						</div>
 						
 					</div>
@@ -207,8 +233,8 @@ function Payment() {
 					</div>
 						<div className="card-body">
 
-                       
-						<button className="btn btn-primary mt-5" onClick={Medical}>Rs 7500</button>
+						{  !isMedical ? <button className="btn btn-primary mt-5" onClick={Medical }> Rs 7500</button> :  !payment  ? <button className="btn btn-danger mt-5" >Please wait processing</button>  :    <button className="btn btn-success mt-5">Payment Success</button>    }
+
 						</div>
 					</div>
 				</div>
@@ -223,6 +249,4 @@ function Payment() {
 
 export default Payment
 
-//
-//			
-//			
+			
