@@ -1,5 +1,4 @@
 import React from 'react'
-
 import './App.css'
 import Payment from './Components/Payment'
 
@@ -8,7 +7,6 @@ function App() {
 	
 	return (
 		<div className="App">
-		
 			<Payment/>
 		</div>
 	)
