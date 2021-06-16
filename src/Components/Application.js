@@ -5,7 +5,6 @@ class Form extends Component{
        constructor(){
         super()
         this.state={
-            student:[],
             name:'',
             email:'',
             mobile:'',
@@ -26,51 +25,12 @@ class Form extends Component{
             qualification:'',
             address:'',
             date:'',
-            message:'',
-            success:'',
-            fields: {},
-            errors: {}
+            message:''
 
         }
        }
 
-        handleValidation(){
-            let fields = this.state.fields;
-            let errors = {};
-            let formIsValid = true;
-
-            //Name
-            if(!fields["name"]){
-               formIsValid = false;
-               errors["name"] = "Cannot be empty";
-            }
-      
-            if(typeof fields["name"] !== "undefined"){
-               if(!fields["name"].match(/^[a-zA-Z]+$/)){
-                  formIsValid = false;
-                  errors["name"] = "Only letters";
-               }        
-            }
-       
-            //Email
-            if(!fields["email"]){
-               formIsValid = false;
-               errors["email"] = "Cannot be empty";
-            }
-      
-            if(typeof fields["email"] !== "undefined"){
-               let lastAtPos = fields["email"].lastIndexOf('@');
-               let lastDotPos = fields["email"].lastIndexOf('.');
-
-               if (!(lastAtPos < lastDotPos && lastAtPos > 0 && fields["email"].indexOf('@@') == -1 && lastDotPos > 2 && (fields["email"].length - lastDotPos) > 2)) {
-                  formIsValid = false;
-                  errors["email"] = "Email is not valid";
-                }
-           }  
-
-           this.setState({errors: errors});
-           return formIsValid;
-       }
+    
       
        processName = (obj) =>{
            this.setState({
@@ -175,12 +135,18 @@ class Form extends Component{
         })
     }
 
+
+
+
+
+
+
+
        handleSubmit = e => {
-           this.setState({
-            msg: "Please wait Processing....",
-            student:[]
-        })
+
         e.preventDefault();
+
+       
         const data = {
           name: this.state.name,
           email: this.state.email,
@@ -203,7 +169,10 @@ class Form extends Component{
           address:this.state.address,
           date:this.state.date
 
+       
+
         };
+
         axios
           .post("https://eduprov-api.herokuapp.com/api/contact", data)
           .then(res => console.log(res))
@@ -214,8 +183,8 @@ class Form extends Component{
 
      render(){
          return(
-            <form  className="post" onSubmit={this.handleSubmit}>
-            <div className="container mt-2">
+            <form  className="post" onSubmit={this.handleSubmit}  >
+            <div className="container mt-3">
                 <div className="row">
                     <div>
                     <div className="col-lg-12">
@@ -230,150 +199,182 @@ class Form extends Component{
                               <div className="card-body">
                                <div className="row form-group">
                                    <div className="col-lg-4 mt-2">
-                                       <label>Full Name</label>
+                                       <label for="name">Full Name</label>
                                    <input type="text" className="form-control"
                                       value={this.state.name}
                                       onChange={this.processName}
+                                      id="name" name="name"
+                                      pattern="[a-zA-Z0-9]+" minlength="3" maxlength="50"
+                                      required
                                       />
+                                      
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label>Email-ID</label>
+                                       <label for="name">Email-ID</label>
                                    <input type="text" className="form-control"
                                        value={this.state.email}
                                        onChange={this.processEmail}
+                                       id="email" name="email"
+                                       pattern=".+@\.com|.+\.com"
+                                       required
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label>Mobile No</label>
+                                       <label for="name">Mobile No</label>
                                    <input type="number" className="form-control" 
                                       value={this.state.mobile}
                                       onChange={this.processMobile}
+                                      id="number" name="number"
+                                      required
+                                      pattern="\(?(\d{3})\)?[-\.\s]?(\d{3})[-\.\s]?(\d{4})" minlength="10" maxlength="12"
+                                      
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label>Dob</label>
-                                   <input type="text" className="form-control" 
+                                       <label for="name">Dob</label>
+                                   <input type="date" className="form-control" 
                                       value={this.state.dob}
                                       onChange={this.processDob}
+                                      id="dob" name="dob"
+                                      required
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label>Gender</label>
+                                       <label for="name">Gender</label>
                                    <input type="text" className="form-control" 
                                       value={this.state.gender}
                                       onChange={this.processGender}
+                                      id="gender" name="gender"
+                                   
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label>Academics</label>
+                                       <label for="name">Academics</label>
                                    <input type="text" className="form-control" 
                                        value={this.state.academic}
                                        onChange={this.processAcademic}
+                                       id="academic" name="academic"
+                                       
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label>Activities</label>
+                                       <label for="name">Activities</label>
                                    <input type="text" className="form-control"
                                      value={this.state.activities}
                                      onChange={this.processActivities}
+                                     id="activities" name="activities"
+                                    
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label>Course</label>
+                                       <label for="name">Course</label>
                                    <input type="text" className="form-control" 
                                      value={this.state.course}
                                      onChange={this.processCourse}
+                                     
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label>Father Name</label>
+                                       <label for="name">Father Name</label>
                                    <input type="text" className="form-control" 
                                      value={this.state.father}
                                      onChange={this.processFather}
+                                    
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label>Mother Name</label>
+                                       <label for="name">Mother Name</label>
                                    <input type="text" className="form-control" 
                                       value={this.state.mother}
                                       onChange={this.processMother}
+                                      
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label>Parents Occupation</label>
+                                       <label for="name">Parents Occupation</label>
                                    <input type="text" className="form-control"
                                       value={this.state.occupation}
                                       onChange={this.processOccupation}
+                                      
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label>Caste</label>
+                                       <label for="name">Caste</label>
                                    <input type="text" className="form-control" 
                                      value={this.state.caste}
                                      onChange={this.processCaste}
+                                     
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label>Country</label>
+                                       <label for="name">Country</label>
                                    <input type="text" className="form-control" 
                                      value={this.state.country}
                                      onChange={this.processCountry}
+                                     
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label>State</label>
+                                       <label for="name">State</label>
                                    <input type="text" className="form-control" 
                                       value={this.state.state}
                                       onChange={this.processState}
+                                     
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label>City</label>
+                                       <label for="name">City</label>
                                    <input type="text" className="form-control" 
                                      value={this.state.city}
                                      onChange={this.processCity}
+                                    
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label>Nationality</label>
+                                       <label for="name">Nationality</label>
                                    <input type="text" className="form-control" 
                                      value={this.state.nationality}
                                      onChange={this.processNationality}
+                                     
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label>Prefered College</label>
+                                       <label for="name">Prefered College</label>
                                    <input type="text" className="form-control" 
                                      value={this.state.college}
                                      onChange={this.processCollege}
+                                     
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label>Qualification</label>
+                                       <label for="name">Qualification</label>
                                    <input type="text" className="form-control" 
                                      value={this.state.qualification}
                                      onChange={this.processQualification}
+                                   
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label>Address</label>
+                                       <label for="name">Address</label>
                                    <input type="text" className="form-control" 
                                       value={this.state.address}
                                       onChange={this.processAddress}
+                                      
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label>Application Date</label>
-                                   <input type="text" className="form-control" 
+                                       <label for="name">Application Date</label>
+                                   <input type="date" className="form-control" 
                                      value={this.state.date}
                                      onChange={this.processDate}
+                                    
                                       />
                                    </div>
                                    
                                </div>
                                <br/>
                                <div className="text-center">
-                               <button  className="btn btn-success btn-block" type="submit" >Send Message</button>
+                               <button  className="btn btn-success btn-block"   type="submit" >Send Message</button>
                                 
                                </div>
                                <div className="mt-2">

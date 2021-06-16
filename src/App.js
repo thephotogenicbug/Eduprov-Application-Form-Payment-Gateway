@@ -1,13 +1,20 @@
 import React from 'react'
-import './App.css'
-import Payment from './Components/Payment'
-
-
+import { HashRouter, Route } from 'react-router-dom'
+import Medical from './Components/Medical'
+import Header from './Components/Header'
+import Form from './Components/Application'
+import FormTest from './Components/ApplicationTest'
 function App() {
 	
 	return (
 		<div className="App">
-			<Payment/>
+			
+			<HashRouter>
+			<Header/>
+				<Route  exact path='/medical'  component={Medical}  />
+				<Route exact  path='/'  component={Form} />
+			</HashRouter>
+		
 		</div>
 	)
 }
