@@ -3,8 +3,8 @@ import axios from 'axios';
 
 class Form extends Component{
        constructor(){
-        super()
-        this.state={
+           super();
+           this.state={
             name:'',
             email:'',
             mobile:'',
@@ -24,10 +24,10 @@ class Form extends Component{
             college:'',
             qualification:'',
             address:'',
-            date:'',
-            message:''
+            message:'',
+    
 
-        }
+        };
        }
 
     
@@ -129,24 +129,13 @@ class Form extends Component{
             address:obj.target.value
         })
     }
-    processDate = (obj) =>{
-        this.setState({
-            date:obj.target.value
-        })
-    }
+   
 
-
-
-
-
-
-
-
-       handleSubmit = e => {
-
+       handleSubmit = (e) => {
         e.preventDefault();
-
-       
+        this.setState({
+            message:"Please Wait Processing...",
+        })
         const data = {
           name: this.state.name,
           email: this.state.email,
@@ -168,22 +157,28 @@ class Form extends Component{
           qualification:this.state.qualification,
           address:this.state.address,
           date:this.state.date
-
-       
-
         };
+       
+        
+     
 
         axios
           .post("https://eduprov-api.herokuapp.com/api/contact", data)
           .then(res => console.log(res))
           .catch(err => {
-              this.setState({message:err.message})
+              this.setState({
+                  message:err.message,
+           
+                })
+               
           });
+          window.location.href="#/Thankyou";
+         
       };
 
      render(){
          return(
-            <form  className="post" onSubmit={this.handleSubmit}  >
+            <form  className="post"   onSubmit={this.handleSubmit}>
             <div className="container mt-3">
                 <div className="row">
                     <div>
@@ -246,15 +241,17 @@ class Form extends Component{
                                       onChange={this.processGender}
                                       id="gender" name="gender"
                                    
+                                      pattern="[a-zA-Z0-9]+" minlength="3" maxlength="50"
+                                      required
+                                   
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label for="name">Academics</label>
+                                       <label >Academics</label>
                                    <input type="text" className="form-control" 
                                        value={this.state.academic}
                                        onChange={this.processAcademic}
-                                       id="academic" name="academic"
-                                       
+                                      
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
@@ -263,7 +260,8 @@ class Form extends Component{
                                      value={this.state.activities}
                                      onChange={this.processActivities}
                                      id="activities" name="activities"
-                                    
+                                     pattern="[a-zA-Z0-9]+" minlength="3" maxlength="50"
+                                      required
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
@@ -271,7 +269,8 @@ class Form extends Component{
                                    <input type="text" className="form-control" 
                                      value={this.state.course}
                                      onChange={this.processCourse}
-                                     
+                                     pattern="[a-zA-Z0-9]+" minlength="3" maxlength="50"
+                                     required
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
@@ -279,7 +278,8 @@ class Form extends Component{
                                    <input type="text" className="form-control" 
                                      value={this.state.father}
                                      onChange={this.processFather}
-                                    
+                                     pattern="[a-zA-Z0-9]+" minlength="3" maxlength="50"
+                                      required
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
@@ -287,7 +287,8 @@ class Form extends Component{
                                    <input type="text" className="form-control" 
                                       value={this.state.mother}
                                       onChange={this.processMother}
-                                      
+                                      pattern="[a-zA-Z0-9]+" minlength="3" maxlength="50"
+                                      required
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
@@ -295,7 +296,8 @@ class Form extends Component{
                                    <input type="text" className="form-control"
                                       value={this.state.occupation}
                                       onChange={this.processOccupation}
-                                      
+                                      pattern="[a-zA-Z0-9]+" minlength="3" maxlength="50"
+                                      required
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
@@ -303,7 +305,8 @@ class Form extends Component{
                                    <input type="text" className="form-control" 
                                      value={this.state.caste}
                                      onChange={this.processCaste}
-                                     
+                                     pattern="[a-zA-Z0-9]+" minlength="3" maxlength="50"
+                                     required
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
@@ -311,7 +314,8 @@ class Form extends Component{
                                    <input type="text" className="form-control" 
                                      value={this.state.country}
                                      onChange={this.processCountry}
-                                     
+                                     pattern="[a-zA-Z0-9]+" minlength="3" maxlength="50"
+                                     required
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
@@ -319,7 +323,8 @@ class Form extends Component{
                                    <input type="text" className="form-control" 
                                       value={this.state.state}
                                       onChange={this.processState}
-                                     
+                                      pattern="[a-zA-Z0-9]+" minlength="3" maxlength="50"
+                                      required
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
@@ -327,7 +332,8 @@ class Form extends Component{
                                    <input type="text" className="form-control" 
                                      value={this.state.city}
                                      onChange={this.processCity}
-                                    
+                                     pattern="[a-zA-Z0-9]+" minlength="3" maxlength="50"
+                                      required
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
@@ -335,7 +341,8 @@ class Form extends Component{
                                    <input type="text" className="form-control" 
                                      value={this.state.nationality}
                                      onChange={this.processNationality}
-                                     
+                                     pattern="[a-zA-Z0-9]+" minlength="3" maxlength="50"
+                                     required
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
@@ -343,7 +350,8 @@ class Form extends Component{
                                    <input type="text" className="form-control" 
                                      value={this.state.college}
                                      onChange={this.processCollege}
-                                     
+                                     pattern="[a-zA-Z0-9]+" minlength="3" maxlength="50"
+                                     required
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
@@ -351,7 +359,8 @@ class Form extends Component{
                                    <input type="text" className="form-control" 
                                      value={this.state.qualification}
                                      onChange={this.processQualification}
-                                   
+                                     pattern="[a-zA-Z0-9]+" minlength="3" maxlength="50"
+                                     required
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
@@ -359,22 +368,15 @@ class Form extends Component{
                                    <input type="text" className="form-control" 
                                       value={this.state.address}
                                       onChange={this.processAddress}
-                                      
-                                      />
-                                   </div>
-                                   <div className="col-lg-4 mt-2">
-                                       <label for="name">Application Date</label>
-                                   <input type="date" className="form-control" 
-                                     value={this.state.date}
-                                     onChange={this.processDate}
-                                    
+                                      pattern="[a-zA-Z0-9]+" minlength="3" maxlength="50"
+                                      required
                                       />
                                    </div>
                                    
                                </div>
                                <br/>
                                <div className="text-center">
-                               <button  className="btn btn-success btn-block"   type="submit" >Send Message</button>
+                               <button  className="btn btn-success btn-block"   type="submit"   >Send Message</button>
                                 
                                </div>
                                <div className="mt-2">

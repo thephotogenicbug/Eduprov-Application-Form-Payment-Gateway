@@ -3,7 +3,7 @@ import { HashRouter, Route } from 'react-router-dom'
 import Medical from './Components/Medical'
 import Header from './Components/Header'
 import Form from './Components/Application'
-import FormTest from './Components/ApplicationTest'
+import Thankyou from './Components/Thankyou'
 function App() {
 	
 	return (
@@ -13,6 +13,7 @@ function App() {
 			<Header/>
 				<Route  exact path='/medical'  component={Medical}  />
 				<Route exact  path='/'  component={Form} />
+				<Route exact  path='/thankyou'  component={Thankyou} />
 			</HashRouter>
 		
 		</div>
