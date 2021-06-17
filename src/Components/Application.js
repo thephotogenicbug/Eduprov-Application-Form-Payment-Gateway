@@ -485,7 +485,7 @@ class Form extends Component{
                                       />
                                    </div>
                                    <div className="col-lg-12 mt-2">
-                                       <label for="name">Address <i className="text-danger"> *</i></label>
+                                       <label for="name">Address <i className="text-danger"> *</i> </label>
                                    <textarea className="form-control"  value={this.state.address}
                                       onChange={this.processAddress}
                                      
@@ -498,7 +498,7 @@ class Form extends Component{
                                </div>
                                <br/>
                                <div className="text-center">
-                               <button  className="btn btn-success btn-block"   type="submit"   >Send Message</button>
+                               <button  className="btn btn-success btn-block"   type="submit"   >Submit </button>
                                 
                                </div>
                                <div className="mt-2">
