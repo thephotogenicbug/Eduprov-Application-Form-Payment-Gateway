@@ -225,7 +225,7 @@ class Form extends Component{
      
 
         axios
-          .post("http://localhost:5000/api/contact", data)
+          .post("https://eduprov-api.herokuapp.com/api/contact", data)
           .then(res => console.log(res))
           .catch(err => {
               this.setState({
