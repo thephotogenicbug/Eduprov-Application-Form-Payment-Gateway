@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './Course.css'
 import undergraduate_logo from './undergraduate.png'
+import {Link} from 'react-router-dom';
 
 
 const loadScript = (src) => {
@@ -80,7 +81,8 @@ const Undergraduate = () => {
 	   <div className="container mt-2">
        <div className="row">
            <div className="col-md-12">
-               <h4 className="mt-4" style={{color:'#45AF49'}}>EDUPROV PAYMENT GATEWAY</h4>
+           <Link to="/" className="heading">  <h4 className="mt-4" style={{color:'#45AF49'}}>EDUPROV PAYMENT GATEWAY</h4></Link>
+             
                <label className="text-dark mb-5">Undergraduate Course Registration Fee</label>
            </div>
            <div className="col-md-6 mt-5" id="heading">

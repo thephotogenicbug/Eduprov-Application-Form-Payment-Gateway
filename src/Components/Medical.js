@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './Course.css'
 import medical_logo from './medical.png'
+import {Link} from 'react-router-dom';
 
 
 const loadScript = (src) => {
@@ -80,7 +81,8 @@ const Medical = () => {
 	   <div className="container mt-2">
        <div className="row">
            <div className="col-md-12">
-               <h4 className="text-danger mt-4">EDUPROV PAYMENT GATEWAY</h4>
+		   <Link to="/" className="heading"><h4 className="text-danger mt-4">EDUPROV PAYMENT GATEWAY</h4></Link>
+               
                <label className="text-dark mb-5">Medical Course Registration Fee</label>
            </div>
            <div className="col-md-6 mt-5" id="heading">

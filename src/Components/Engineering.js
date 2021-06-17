@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './Course.css'
 import engineering_logo from './engineering.png'
-
+import {Link} from 'react-router-dom';
 
 const loadScript = (src) => {
 	return new Promise((resolve) => {
@@ -81,7 +81,8 @@ const Engineering = () => {
 	   <div className="container mt-2">
        <div className="row">
            <div className="col-md-12">
-               <h4 className=" mt-4" style={{color:'#F9A826'}}>EDUPROV PAYMENT GATEWAY</h4>
+           
+               <Link to="/" className="heading"><h4 className=" mt-4" style={{color:'#F9A826'}}>EDUPROV PAYMENT GATEWAY</h4></Link>
                <label className="text-dark mb-5">Engineering Course Registration Fee</label>
            </div>
            <div className="col-md-6 mt-5" id="heading">
