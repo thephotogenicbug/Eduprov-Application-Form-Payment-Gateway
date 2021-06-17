@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './Course.css'
-import medical_logo from './medical.png'
+import undergraduate_logo from './undergraduate.png'
 
 
 const loadScript = (src) => {
@@ -19,7 +19,7 @@ const loadScript = (src) => {
 
 const __DEV__ = document.domain === 'localhost'
 
-const Medical = () => {
+const Undergraduate = () => {
 	const [name, setName] = useState([]);
 	const [email, setEmail] = useState([]);
 	const [number, setNumber] = useState([]);
@@ -27,12 +27,12 @@ const Medical = () => {
 	const [orderId, setOrderId] = useState('');
 	const [paymentId, setPaymentId] = useState('');
 	const [signature, setSignature] = useState('');
-	const [isMedical, setMedical] = useState(false);
+	const [isOthers, setOthers] = useState(false);
 	
 
 	// Medical Function
 	 const  Medical = async () => {
-		setMedical(true)
+		setOthers(true)
 		const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
 
 		if (!res) {
@@ -40,7 +40,7 @@ const Medical = () => {
 			return
 		}
 
-		const data = await fetch('https://serverless-payment.herokuapp.com/razorpay/medical', { method: 'POST' }).then((t) =>
+		const data = await fetch('https://serverless-payment.herokuapp.com/razorpay', { method: 'POST' }).then((t) =>
 			t.json(),
 			
 		)
@@ -72,7 +72,7 @@ const Medical = () => {
 		}
 		const paymentObject = new window.Razorpay(options)
 		paymentObject.open();
-        setMedical(false)
+        setOthers(false)
 	};
 
 	return (
@@ -80,27 +80,27 @@ const Medical = () => {
 	   <div className="container mt-2">
        <div className="row">
            <div className="col-md-12">
-               <h4 className="text-danger mt-4">EDUPROV PAYMENT GATEWAY</h4>
-               <label className="text-dark mb-5">Medical Course Registration Fee</label>
+               <h4 className="mt-4" style={{color:'#45AF49'}}>EDUPROV PAYMENT GATEWAY</h4>
+               <label className="text-dark mb-5">Undergraduate Course Registration Fee</label>
            </div>
            <div className="col-md-6 mt-5" id="heading">
-               <h3 className="text-primary"> About Medical Course</h3>
+               <h3 className="text-primary"> About Undergraduate Course</h3>
                <p className="text-justify mt-2" id="p-tag">
-               We help you in professional assistance in picking the right Medical Course and will guide you towards the Best Universities offering medical education along with admission guidance for all Medical Courses
+               We help you in getting Admission Guidance in Top Colleges for all undergraduate and Postgraduate Courses.
                </p>
-                <h4 className="text-danger mt-3">Registration Fee : 7500 INR</h4>
+                <h4 className=" mt-3" style={{color:'#45AF49'}}>Registration Fee : 2500 INR</h4>
                  <br/>
                 <div>
-                {isMedical  ? <label className="text-danger">Please wait processing</label> : <label></label>}
+                {isOthers  ? <label style={{color:'#45AF49'}}>Please wait processing</label> : <label></label>}
                 {payment  ? <label className="text-success">Payment is successfull </label> : <label></label>}
 
-               
+              
                 </div>
                  <br/>
-                <button className="btn btn-danger mt-3" onClick={Medical }>Pay Now</button> 
+                <button className="btn btn-success mt-3" onClick={Medical }>Pay Now</button> 
            </div>
            <div className="col-md-6">
-           <img  src={medical_logo}  className="img-fluid" alt="Medical course payment screen"/>
+           <img  src={undergraduate_logo}  className="img-fluid" alt="Undergraduate course payment screen"/>
            </div>
        </div>
        </div>
@@ -111,6 +111,6 @@ const Medical = () => {
 	)
 }
 
-export default Medical
+export default Undergraduate
 
 			

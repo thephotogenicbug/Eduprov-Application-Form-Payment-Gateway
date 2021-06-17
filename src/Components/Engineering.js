@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import './Course.css'
-import medical_logo from './medical.png'
+import engineering_logo from './engineering.png'
 
 
 const loadScript = (src) => {
@@ -19,7 +19,7 @@ const loadScript = (src) => {
 
 const __DEV__ = document.domain === 'localhost'
 
-const Medical = () => {
+const Engineering = () => {
 	const [name, setName] = useState([]);
 	const [email, setEmail] = useState([]);
 	const [number, setNumber] = useState([]);
@@ -27,12 +27,12 @@ const Medical = () => {
 	const [orderId, setOrderId] = useState('');
 	const [paymentId, setPaymentId] = useState('');
 	const [signature, setSignature] = useState('');
-	const [isMedical, setMedical] = useState(false);
+	const [isEng, setEng] = useState(false);
 	
 
-	// Medical Function
-	 const  Medical = async () => {
-		setMedical(true)
+	// Engineering Function
+    const Eng  =  async ()=> {
+		setEng(true)
 		const res = await loadScript('https://checkout.razorpay.com/v1/checkout.js')
 
 		if (!res) {
@@ -40,7 +40,7 @@ const Medical = () => {
 			return
 		}
 
-		const data = await fetch('https://serverless-payment.herokuapp.com/razorpay/medical', { method: 'POST' }).then((t) =>
+		const data = await fetch('https://serverless-payment.herokuapp.com/razorpay/engineering', { method: 'POST' }).then((t) =>
 			t.json(),
 			
 		)
@@ -63,16 +63,17 @@ const Medical = () => {
 				setSignature(response.razorpay_signature)
 				setPayment(true)
 
+
 			},
 			prefill: {
 				name,
-				email,
+				email: '',
 				phone_number: ''
 			}
 		}
 		const paymentObject = new window.Razorpay(options)
 		paymentObject.open();
-        setMedical(false)
+        setEng(false)
 	};
 
 	return (
@@ -80,27 +81,27 @@ const Medical = () => {
 	   <div className="container mt-2">
        <div className="row">
            <div className="col-md-12">
-               <h4 className="text-danger mt-4">EDUPROV PAYMENT GATEWAY</h4>
-               <label className="text-dark mb-5">Medical Course Registration Fee</label>
+               <h4 className=" mt-4" style={{color:'#F9A826'}}>EDUPROV PAYMENT GATEWAY</h4>
+               <label className="text-dark mb-5">Engineering Course Registration Fee</label>
            </div>
            <div className="col-md-6 mt-5" id="heading">
-               <h3 className="text-primary"> About Medical Course</h3>
+               <h3 className="text-primary"> About Engineering Course</h3>
                <p className="text-justify mt-2" id="p-tag">
-               We help you in professional assistance in picking the right Medical Course and will guide you towards the Best Universities offering medical education along with admission guidance for all Medical Courses
+               We avail Career Counseling before choosing the Best Engineering Course and Admission guidance in Top Colleges and universities.
                </p>
-                <h4 className="text-danger mt-3">Registration Fee : 7500 INR</h4>
+                <h4 className=" mt-3" style={{color:'#F9A826'}}>Registration Fee : 5500 INR</h4>
                  <br/>
                 <div>
-                {isMedical  ? <label className="text-danger">Please wait processing</label> : <label></label>}
+                {isEng  ? <label style={{color:'#F9A826'}}>Please wait processing</label> : <label></label>}
                 {payment  ? <label className="text-success">Payment is successfull </label> : <label></label>}
 
                
                 </div>
                  <br/>
-                <button className="btn btn-danger mt-3" onClick={Medical }>Pay Now</button> 
+                <button className="btn btn-warning text-white mt-3" onClick={Eng }>Pay Now</button> 
            </div>
            <div className="col-md-6">
-           <img  src={medical_logo}  className="img-fluid" alt="Medical course payment screen"/>
+           <img  src={engineering_logo}  className="img-fluid" alt="Engineering course payment screen"/>
            </div>
        </div>
        </div>
@@ -111,6 +112,6 @@ const Medical = () => {
 	)
 }
 
-export default Medical
+export default Engineering
 
 			

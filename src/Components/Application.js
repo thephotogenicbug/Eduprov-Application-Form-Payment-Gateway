@@ -199,7 +199,7 @@ class Form extends Component{
                                       value={this.state.name}
                                       onChange={this.processName}
                                       id="name" name="name"
-                                      pattern="[a-zA-Z0-9]+" minlength="3" maxlength="50"
+                               
                                       required
                                       />
                                       
@@ -221,7 +221,7 @@ class Form extends Component{
                                       onChange={this.processMobile}
                                       id="number" name="number"
                                       required
-                                      pattern="\(?(\d{3})\)?[-\.\s]?(\d{3})[-\.\s]?(\d{4})" minlength="10" maxlength="12"
+                                     
                                       
                                       />
                                    </div>
@@ -241,7 +241,7 @@ class Form extends Component{
                                       onChange={this.processGender}
                                       id="gender" name="gender"
                                    
-                                      pattern="[a-zA-Z0-9]+" minlength="3" maxlength="50"
+                                 
                                       required
                                    
                                       />
@@ -260,7 +260,7 @@ class Form extends Component{
                                      value={this.state.activities}
                                      onChange={this.processActivities}
                                      id="activities" name="activities"
-                                     pattern="[a-zA-Z0-9]+" minlength="3" maxlength="50"
+                                    
                                       required
                                       />
                                    </div>
@@ -269,7 +269,7 @@ class Form extends Component{
                                    <input type="text" className="form-control" 
                                      value={this.state.course}
                                      onChange={this.processCourse}
-                                     pattern="[a-zA-Z0-9]+" minlength="3" maxlength="50"
+                                   
                                      required
                                       />
                                    </div>
@@ -278,7 +278,7 @@ class Form extends Component{
                                    <input type="text" className="form-control" 
                                      value={this.state.father}
                                      onChange={this.processFather}
-                                     pattern="[a-zA-Z0-9]+" minlength="3" maxlength="50"
+                                   
                                       required
                                       />
                                    </div>
@@ -287,7 +287,7 @@ class Form extends Component{
                                    <input type="text" className="form-control" 
                                       value={this.state.mother}
                                       onChange={this.processMother}
-                                      pattern="[a-zA-Z0-9]+" minlength="3" maxlength="50"
+                                   
                                       required
                                       />
                                    </div>
@@ -296,7 +296,7 @@ class Form extends Component{
                                    <input type="text" className="form-control"
                                       value={this.state.occupation}
                                       onChange={this.processOccupation}
-                                      pattern="[a-zA-Z0-9]+" minlength="3" maxlength="50"
+                                 
                                       required
                                       />
                                    </div>
@@ -305,7 +305,7 @@ class Form extends Component{
                                    <input type="text" className="form-control" 
                                      value={this.state.caste}
                                      onChange={this.processCaste}
-                                     pattern="[a-zA-Z0-9]+" minlength="3" maxlength="50"
+                                 
                                      required
                                       />
                                    </div>
@@ -314,7 +314,7 @@ class Form extends Component{
                                    <input type="text" className="form-control" 
                                      value={this.state.country}
                                      onChange={this.processCountry}
-                                     pattern="[a-zA-Z0-9]+" minlength="3" maxlength="50"
+                                  
                                      required
                                       />
                                    </div>
@@ -323,7 +323,7 @@ class Form extends Component{
                                    <input type="text" className="form-control" 
                                       value={this.state.state}
                                       onChange={this.processState}
-                                      pattern="[a-zA-Z0-9]+" minlength="3" maxlength="50"
+                                
                                       required
                                       />
                                    </div>
@@ -332,7 +332,7 @@ class Form extends Component{
                                    <input type="text" className="form-control" 
                                      value={this.state.city}
                                      onChange={this.processCity}
-                                     pattern="[a-zA-Z0-9]+" minlength="3" maxlength="50"
+                                   
                                       required
                                       />
                                    </div>
@@ -341,7 +341,7 @@ class Form extends Component{
                                    <input type="text" className="form-control" 
                                      value={this.state.nationality}
                                      onChange={this.processNationality}
-                                     pattern="[a-zA-Z0-9]+" minlength="3" maxlength="50"
+                                   
                                      required
                                       />
                                    </div>
@@ -350,7 +350,7 @@ class Form extends Component{
                                    <input type="text" className="form-control" 
                                      value={this.state.college}
                                      onChange={this.processCollege}
-                                     pattern="[a-zA-Z0-9]+" minlength="3" maxlength="50"
+                                     
                                      required
                                       />
                                    </div>
@@ -359,7 +359,7 @@ class Form extends Component{
                                    <input type="text" className="form-control" 
                                      value={this.state.qualification}
                                      onChange={this.processQualification}
-                                     pattern="[a-zA-Z0-9]+" minlength="3" maxlength="50"
+                                    
                                      required
                                       />
                                    </div>
@@ -368,7 +368,7 @@ class Form extends Component{
                                    <input type="text" className="form-control" 
                                       value={this.state.address}
                                       onChange={this.processAddress}
-                                      pattern="[a-zA-Z0-9]+" minlength="3" maxlength="50"
+                                     
                                       required
                                       />
                                    </div>

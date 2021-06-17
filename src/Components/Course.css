@@ -13,3 +13,11 @@ body{
     
 }
 
+img{
+    margin:1%;
+}
+
+.container{
+    width:95%;
+    margin:auto;
+}
