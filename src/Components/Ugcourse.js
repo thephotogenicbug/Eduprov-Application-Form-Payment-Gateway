@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './Course.css'
 import undergraduate_logo from './undergraduate.png'
 import {Link} from 'react-router-dom';
-
+import Footer from './Footer';
 
 const loadScript = (src) => {
 	return new Promise((resolve) => {
@@ -105,6 +105,7 @@ const Undergraduate = () => {
            <img  src={undergraduate_logo}  className="img-fluid" alt="Undergraduate course payment screen"/>
            </div>
        </div>
+	   <Footer/>
        </div>
 			 
 			 

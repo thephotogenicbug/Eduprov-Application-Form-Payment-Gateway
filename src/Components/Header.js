@@ -24,27 +24,27 @@ const  Header = () => {
             </div>
             <ul className={click ? 'nav-menu active' : 'nav-menu'}>
                 <li className="nav-item">
-                   <Link to='/' className='nav-links text-danger' onClick={closeMobileMenu}>
+                   <Link to='/' className='nav-links text-white ' onClick={closeMobileMenu}>
                      Application Form
                    </Link>
                 </li>
                 <li className="nav-item">
-                   <Link to='/medical' className='nav-links text-primary' onClick={closeMobileMenu}> 
+                   <Link to='/medical' className='nav-links  text-white' onClick={closeMobileMenu}> 
                        Medical course
                    </Link>
                 </li>
                 <li className="nav-item">
-                   <Link to='/engineering' className='nav-links text-warning' onClick={closeMobileMenu}> 
+                   <Link to='/engineering' className='nav-links  text-white' onClick={closeMobileMenu}> 
                       Engineering course
                    </Link>
                 </li>
                 <li className="nav-item">
-                   <Link to='/undergraduate' className='nav-links text-success' onClick={closeMobileMenu}> 
+                   <Link to='/undergraduate' className='nav-links  text-white' onClick={closeMobileMenu}> 
                       Undergraduate course
                    </Link>
                 </li>
                 <li className="nav-item">
-                   <Link to='/oversease' className='nav-links text-info' onClick={closeMobileMenu}> 
+                   <Link to='/oversease' className='nav-links  text-white' onClick={closeMobileMenu}> 
                       Oversease course
                    </Link>
                 </li>
@@ -54,6 +54,7 @@ const  Header = () => {
             </div>    
            </div> 
            </IconContext.Provider>
+           
         </>
     )
 }

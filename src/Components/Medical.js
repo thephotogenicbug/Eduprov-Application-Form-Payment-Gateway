@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import './Course.css'
 import medical_logo from './medical.png'
 import {Link} from 'react-router-dom';
+import Footer from './Footer';
 
 
 const loadScript = (src) => {
@@ -105,6 +106,7 @@ const Medical = () => {
            <img  src={medical_logo}  className="img-fluid" alt="Medical course payment screen"/>
            </div>
        </div>
+	   <Footer/>
        </div>
 			 
 			 

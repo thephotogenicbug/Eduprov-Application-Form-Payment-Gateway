@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './Course.css'
 import engineering_logo from './engineering.png'
 import {Link} from 'react-router-dom';
-
+import Footer from './Footer';
 const loadScript = (src) => {
 	return new Promise((resolve) => {
 		const script = document.createElement('script')
@@ -105,6 +105,7 @@ const Engineering = () => {
            <img  src={engineering_logo}  className="img-fluid" alt="Engineering course payment screen"/>
            </div>
        </div>
+	   <Footer/>
        </div>
 			 
 			 

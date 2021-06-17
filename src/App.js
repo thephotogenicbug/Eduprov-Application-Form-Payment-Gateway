@@ -6,6 +6,7 @@ import Form from './Components/Application'
 import Thankyou from './Components/Thankyou'
 import Engineering from './Components/Engineering'
 import Undergraduate from './Components/Ugcourse'
+import Oversease from './Components/Oversease'
 function App() {
 	
 	return (
@@ -16,6 +17,7 @@ function App() {
 				<Route  exact path='/medical'  component={Medical}  />
 				<Route  exact path='/engineering'  component={Engineering}  />
 				<Route  exact path='/undergraduate'  component={Undergraduate}  />
+				<Route  exact path='/oversease'  component={Oversease}  />
 				<Route exact  path='/'  component={Form} />
 				<Route exact  path='/thankyou'  component={Thankyou} />
 			</HashRouter>

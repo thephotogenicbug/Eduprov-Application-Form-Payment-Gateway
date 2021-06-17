@@ -1,4 +1,5 @@
 .navbar {
+  background-color: #30ba5c;
     height: 75px;
     display: flex;
     justify-content: center;
@@ -73,6 +74,15 @@
     color: #333333;
     
   }
+
+  .nav-item {
+    height: 80px;
+    border-bottom: 2px solid transparent;
+  }
+  
+  .nav-item:hover {
+    border-bottom: 2px solid #09d5f0;
+  }
   
   .fa-bars {
     color: #333333;
@@ -82,12 +92,10 @@
     display: none;
   }
   
-  @media screen and (max-width: 960px) {
+  @media screen and (max-width: 1200px) {
 
     .navbar {
-        background-color: #fff000;
-        background-image: linear-gradient(315deg, #fff000 0%, #ed008c 74%);
-
+        background-color: #30ba5c;
         height:80px;
      
       }
@@ -115,8 +123,7 @@
     }
   
     .nav-menu.active {
-        background-color: #fff000;
-        background-image: linear-gradient(315deg, #fff000 0%, #ed008c 74%);
+      background-color: #30ba5c;
 
       left: 0;
       opacity: 1;
@@ -129,11 +136,11 @@
       padding: 2rem;
       width: 100%;
       display: table;
-      color:#fff !important;
+      color:#fff ;
     }
     .nav-links:hover {
       
-        color:#fff;
+        color:rgb(24, 86, 180);
       }
 
     .nav-item:hover {
@@ -143,6 +150,8 @@
     .nav-item {
       width: 100%;
     }
+
+    
   
     .navbar-logo {
       position: absolute;

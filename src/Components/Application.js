@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-
+import Footer from './Footer';
 class Form extends Component{
        constructor(){
            super();
@@ -13,18 +13,27 @@ class Form extends Component{
             academic:'',
             activities:'',
             course:'',
+            coursetwo:'',
+            coursethree:'',
+            coursefour:'',
             father:'',
             mother:'',
+            pmobile:'',
             occupation:'',
+            occupationtwo:'',
             caste:'',
             country:'',
             state:'',
             city:'',
             nationality:'',
             college:'',
+            collegetwo:'',
+            collegethree:'',
+            collegefour:'',
             qualification:'',
             address:'',
-            message:'',
+            achievements:'',
+            message:''
     
 
         };
@@ -74,6 +83,21 @@ class Form extends Component{
             course:obj.target.value
         })
     }
+    processCourseTwo = (obj) =>{
+        this.setState({
+            coursetwo:obj.target.value
+        })
+    }
+    processCourseThree = (obj) =>{
+        this.setState({
+            coursethree:obj.target.value
+        })
+    }
+    processCourseFour= (obj) =>{
+        this.setState({
+            coursefour:obj.target.value
+        })
+    }
     processFather = (obj) =>{
         this.setState({
             father:obj.target.value
@@ -84,9 +108,19 @@ class Form extends Component{
             mother:obj.target.value
         })
     }
+    processPmobile = (obj) =>{
+        this.setState({
+            pmobile:obj.target.value
+        })
+    }
     processOccupation = (obj) =>{
         this.setState({
             occupation:obj.target.value
+        })
+    }
+    processOccupationTwo = (obj) =>{
+        this.setState({
+            occupationtwo:obj.target.value
         })
     }
     processCaste = (obj) =>{
@@ -119,6 +153,21 @@ class Form extends Component{
             college:obj.target.value
         })
     }
+    processCollegeTwo = (obj) =>{
+        this.setState({
+            collegetwo:obj.target.value
+        })
+    }
+    processCollegeThree = (obj) =>{
+        this.setState({
+            collegethree:obj.target.value
+        })
+    }
+    processCollegeFour = (obj) =>{
+        this.setState({
+            collegefour:obj.target.value
+        })
+    }
     processQualification = (obj) =>{
         this.setState({
             qualification:obj.target.value
@@ -127,6 +176,11 @@ class Form extends Component{
     processAddress = (obj) =>{
         this.setState({
             address:obj.target.value
+        })
+    }
+    processAch = (obj) =>{
+        this.setState({
+            achievements:obj.target.value
         })
     }
    
@@ -145,25 +199,33 @@ class Form extends Component{
           academic:this.state.academic,
           activities:this.state.activities,
           course:this.state.course,
+          coursetwo:this.state.coursetwo,
+          coursethree:this.state.coursethree,
+          coursefour:this.state.coursefour,
           father:this.state.father,
           mother:this.state.mother,
+          pmobile:this.state.pmobile,
           occupation:this.state.occupation,
+          occupationtwo:this.state.occupationtwo,
           caste:this.state.caste,
           country:this.state.country,
           state:this.state.state,
           city:this.state.city,
           nationality:this.state.nationality,
           college:this.state.college,
+          collegetwo:this.state.collegetwo,
+          collegethree:this.state.collegethree,
+          collegefour:this.state.collegefour,
           qualification:this.state.qualification,
           address:this.state.address,
-          date:this.state.date
+          achievements:this.state.achievements,
         };
        
         
      
 
         axios
-          .post("https://eduprov-api.herokuapp.com/api/contact", data)
+          .post("http://localhost:5000/api/contact", data)
           .then(res => console.log(res))
           .catch(err => {
               this.setState({
@@ -216,13 +278,11 @@ class Form extends Component{
                                    </div>
                                    <div className="col-lg-4 mt-2">
                                        <label for="name">Mobile No</label>
-                                   <input type="number" className="form-control" 
+                                   <input type="text" className="form-control" 
                                       value={this.state.mobile}
                                       onChange={this.processMobile}
                                       id="number" name="number"
                                       required
-                                     
-                                      
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
@@ -240,18 +300,7 @@ class Form extends Component{
                                       value={this.state.gender}
                                       onChange={this.processGender}
                                       id="gender" name="gender"
-                                   
-                                 
                                       required
-                                   
-                                      />
-                                   </div>
-                                   <div className="col-lg-4 mt-2">
-                                       <label >Academics</label>
-                                   <input type="text" className="form-control" 
-                                       value={this.state.academic}
-                                       onChange={this.processAcademic}
-                                      
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
@@ -260,17 +309,39 @@ class Form extends Component{
                                      value={this.state.activities}
                                      onChange={this.processActivities}
                                      id="activities" name="activities"
-                                    
                                       required
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label for="name">Course</label>
+                                       <label for="name">Preferred Course</label>
                                    <input type="text" className="form-control" 
                                      value={this.state.course}
                                      onChange={this.processCourse}
-                                   
                                      required
+                                      />
+                                   </div>
+                                   <div className="col-lg-4 mt-2">
+                                       <label for="name">Preferred Course 2</label>
+                                   <input type="text" className="form-control" 
+                                     value={this.state.coursetwo}
+                                     onChange={this.processCourseTwo}
+                            
+                                      />
+                                   </div>
+                                   <div className="col-lg-4 mt-2">
+                                       <label for="name">Preferred Course 3</label>
+                                   <input type="text" className="form-control" 
+                                     value={this.state.coursethree}
+                                     onChange={this.processCourseThree}
+                               
+                                      />
+                                   </div>
+                                   <div className="col-lg-4 mt-2">
+                                       <label for="name">Preferred Course 4</label>
+                                   <input type="text" className="form-control" 
+                                     value={this.state.coursefour}
+                                     onChange={this.processCourseFour}
+                                  
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
@@ -292,10 +363,28 @@ class Form extends Component{
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label for="name">Parents Occupation</label>
+                                       <label for="name">Parents Mobile No</label>
+                                   <input type="text" className="form-control" 
+                                      value={this.state.pmobile}
+                                      onChange={this.processPmobile}
+                                   
+                                      required
+                                      />
+                                   </div>
+                                   <div className="col-lg-4 mt-2">
+                                       <label for="name">Mother Occupation</label>
                                    <input type="text" className="form-control"
                                       value={this.state.occupation}
                                       onChange={this.processOccupation}
+                                 
+                                      required
+                                      />
+                                   </div>
+                                   <div className="col-lg-4 mt-2">
+                                       <label for="name">Father Occupation</label>
+                                   <input type="text" className="form-control"
+                                      value={this.state.occupationtwo}
+                                      onChange={this.processOccupationTwo}
                                  
                                       required
                                       />
@@ -350,8 +439,31 @@ class Form extends Component{
                                    <input type="text" className="form-control" 
                                      value={this.state.college}
                                      onChange={this.processCollege}
-                                     
                                      required
+                                      />
+                                   </div>
+                                   <div className="col-lg-4 mt-2">
+                                       <label for="name">Prefered College 2</label>
+                                   <input type="text" className="form-control" 
+                                     value={this.state.collegetwo}
+                                     onChange={this.processCollegeTwo}
+                                  
+                                      />
+                                   </div>
+                                   <div className="col-lg-4 mt-2">
+                                       <label for="name">Prefered College 3</label>
+                                   <input type="text" className="form-control" 
+                                     value={this.state.collegethree}
+                                     onChange={this.processCollegeThree}
+                                    
+                                      />
+                                   </div>
+                                   <div className="col-lg-4 mt-2">
+                                       <label for="name">Prefered College 4</label>
+                                   <input type="text" className="form-control" 
+                                     value={this.state.collegefour}
+                                     onChange={this.processCollegeFour}
+                                   
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
@@ -363,14 +475,24 @@ class Form extends Component{
                                      required
                                       />
                                    </div>
-                                   <div className="col-lg-4 mt-2">
-                                       <label for="name">Address</label>
+                                   <div className="col-lg-8 mt-2">
+                                       <label for="name">Sports and Achievements</label>
                                    <input type="text" className="form-control" 
-                                      value={this.state.address}
+                                     value={this.state.achievements}
+                                     onChange={this.processAch}
+                                    
+                                     required
+                                      />
+                                   </div>
+                                   <div className="col-lg-12 mt-2">
+                                       <label for="name">Address</label>
+                                   <textarea className="form-control"  value={this.state.address}
                                       onChange={this.processAddress}
                                      
-                                      required
-                                      />
+                                      required>
+
+                                      </textarea>
+
                                    </div>
                                    
                                </div>
@@ -392,7 +514,7 @@ class Form extends Component{
                     </div>
                 </div>
                 <br/>
-                
+                <Footer/>
             </div>
             </form>
          )
