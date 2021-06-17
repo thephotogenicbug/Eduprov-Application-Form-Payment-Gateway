@@ -256,7 +256,7 @@ class Form extends Component{
                               <div className="card-body">
                                <div className="row form-group">
                                    <div className="col-lg-4 mt-2">
-                                       <label for="name">Full Name</label>
+                                       <label for="name">Full Name <i className="text-danger"> *</i></label>
                                    <input type="text" className="form-control"
                                       value={this.state.name}
                                       onChange={this.processName}
@@ -267,7 +267,7 @@ class Form extends Component{
                                       
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label for="name">Email-ID</label>
+                                       <label for="name">Email-ID <i className="text-danger"> *</i></label>
                                    <input type="text" className="form-control"
                                        value={this.state.email}
                                        onChange={this.processEmail}
@@ -277,7 +277,7 @@ class Form extends Component{
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label for="name">Mobile No</label>
+                                       <label for="name">Mobile No <i className="text-danger"> *</i></label>
                                    <input type="text" className="form-control" 
                                       value={this.state.mobile}
                                       onChange={this.processMobile}
@@ -286,7 +286,7 @@ class Form extends Component{
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label for="name">Dob</label>
+                                       <label for="name">Dob <i className="text-danger"> *</i></label>
                                    <input type="date" className="form-control" 
                                       value={this.state.dob}
                                       onChange={this.processDob}
@@ -295,7 +295,7 @@ class Form extends Component{
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label for="name">Gender</label>
+                                       <label for="name">Gender <i className="text-danger"> *</i></label>
                                    <input type="text" className="form-control" 
                                       value={this.state.gender}
                                       onChange={this.processGender}
@@ -304,7 +304,7 @@ class Form extends Component{
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label for="name">Activities</label>
+                                       <label for="name">Extra Curricular Activities <i className="text-danger"> *</i></label>
                                    <input type="text" className="form-control"
                                      value={this.state.activities}
                                      onChange={this.processActivities}
@@ -313,7 +313,7 @@ class Form extends Component{
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label for="name">Preferred Course</label>
+                                       <label for="name">Preferred Course <i className="text-danger"> *</i></label>
                                    <input type="text" className="form-control" 
                                      value={this.state.course}
                                      onChange={this.processCourse}
@@ -321,7 +321,7 @@ class Form extends Component{
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label for="name">Preferred Course 2</label>
+                                       <label for="name">Preferred Course 2 (optional)</label>
                                    <input type="text" className="form-control" 
                                      value={this.state.coursetwo}
                                      onChange={this.processCourseTwo}
@@ -329,7 +329,7 @@ class Form extends Component{
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label for="name">Preferred Course 3</label>
+                                       <label for="name">Preferred Course 3 (optional)</label>
                                    <input type="text" className="form-control" 
                                      value={this.state.coursethree}
                                      onChange={this.processCourseThree}
@@ -337,7 +337,7 @@ class Form extends Component{
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label for="name">Preferred Course 4</label>
+                                       <label for="name">Preferred Course 4 (optional)</label>
                                    <input type="text" className="form-control" 
                                      value={this.state.coursefour}
                                      onChange={this.processCourseFour}
@@ -345,7 +345,7 @@ class Form extends Component{
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label for="name">Father Name</label>
+                                       <label for="name">Father Name <i className="text-danger"> *</i></label>
                                    <input type="text" className="form-control" 
                                      value={this.state.father}
                                      onChange={this.processFather}
@@ -354,7 +354,7 @@ class Form extends Component{
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label for="name">Mother Name</label>
+                                       <label for="name">Mother Name <i className="text-danger"> *</i></label>
                                    <input type="text" className="form-control" 
                                       value={this.state.mother}
                                       onChange={this.processMother}
@@ -363,7 +363,7 @@ class Form extends Component{
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label for="name">Parents Mobile No</label>
+                                       <label for="name">Parents Mobile No <i className="text-danger"> *</i></label>
                                    <input type="text" className="form-control" 
                                       value={this.state.pmobile}
                                       onChange={this.processPmobile}
@@ -372,7 +372,7 @@ class Form extends Component{
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label for="name">Mother Occupation</label>
+                                       <label for="name">Mother Occupation <i className="text-danger"> *</i></label>
                                    <input type="text" className="form-control"
                                       value={this.state.occupation}
                                       onChange={this.processOccupation}
@@ -381,7 +381,7 @@ class Form extends Component{
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label for="name">Father Occupation</label>
+                                       <label for="name">Father Occupation <i className="text-danger"> *</i></label>
                                    <input type="text" className="form-control"
                                       value={this.state.occupationtwo}
                                       onChange={this.processOccupationTwo}
@@ -390,7 +390,7 @@ class Form extends Component{
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label for="name">Caste</label>
+                                       <label for="name">Caste <i className="text-danger"> *</i></label>
                                    <input type="text" className="form-control" 
                                      value={this.state.caste}
                                      onChange={this.processCaste}
@@ -399,7 +399,7 @@ class Form extends Component{
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label for="name">Country</label>
+                                       <label for="name">Country <i className="text-danger"> *</i></label>
                                    <input type="text" className="form-control" 
                                      value={this.state.country}
                                      onChange={this.processCountry}
@@ -408,7 +408,7 @@ class Form extends Component{
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label for="name">State</label>
+                                       <label for="name">State <i className="text-danger"> *</i></label>
                                    <input type="text" className="form-control" 
                                       value={this.state.state}
                                       onChange={this.processState}
@@ -417,7 +417,7 @@ class Form extends Component{
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label for="name">City</label>
+                                       <label for="name">City <i className="text-danger"> *</i></label>
                                    <input type="text" className="form-control" 
                                      value={this.state.city}
                                      onChange={this.processCity}
@@ -426,7 +426,7 @@ class Form extends Component{
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label for="name">Nationality</label>
+                                       <label for="name">Nationality <i className="text-danger"> *</i></label>
                                    <input type="text" className="form-control" 
                                      value={this.state.nationality}
                                      onChange={this.processNationality}
@@ -435,7 +435,7 @@ class Form extends Component{
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label for="name">Prefered College</label>
+                                       <label for="name">Preferred College <i className="text-danger"> *</i></label>
                                    <input type="text" className="form-control" 
                                      value={this.state.college}
                                      onChange={this.processCollege}
@@ -443,7 +443,7 @@ class Form extends Component{
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label for="name">Prefered College 2</label>
+                                       <label for="name">Preferred College 2 (optional)</label>
                                    <input type="text" className="form-control" 
                                      value={this.state.collegetwo}
                                      onChange={this.processCollegeTwo}
@@ -451,7 +451,7 @@ class Form extends Component{
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label for="name">Prefered College 3</label>
+                                       <label for="name">Preferred College 3 (optional)</label>
                                    <input type="text" className="form-control" 
                                      value={this.state.collegethree}
                                      onChange={this.processCollegeThree}
@@ -459,7 +459,7 @@ class Form extends Component{
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label for="name">Prefered College 4</label>
+                                       <label for="name">Preferred College 4 (optional)</label>
                                    <input type="text" className="form-control" 
                                      value={this.state.collegefour}
                                      onChange={this.processCollegeFour}
@@ -467,7 +467,7 @@ class Form extends Component{
                                       />
                                    </div>
                                    <div className="col-lg-4 mt-2">
-                                       <label for="name">Qualification</label>
+                                       <label for="name">Student Qualification <i className="text-danger"> *</i></label>
                                    <input type="text" className="form-control" 
                                      value={this.state.qualification}
                                      onChange={this.processQualification}
@@ -476,7 +476,7 @@ class Form extends Component{
                                       />
                                    </div>
                                    <div className="col-lg-8 mt-2">
-                                       <label for="name">Sports and Achievements</label>
+                                       <label for="name">Sports and Achievements <i className="text-danger"> *</i></label>
                                    <input type="text" className="form-control" 
                                      value={this.state.achievements}
                                      onChange={this.processAch}
@@ -485,7 +485,7 @@ class Form extends Component{
                                       />
                                    </div>
                                    <div className="col-lg-12 mt-2">
-                                       <label for="name">Address</label>
+                                       <label for="name">Address <i className="text-danger"> *</i></label>
                                    <textarea className="form-control"  value={this.state.address}
                                       onChange={this.processAddress}
                                      
