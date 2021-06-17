@@ -4,7 +4,9 @@ function Oversease() {
     return (
         <div className="mt-5 text-center">
            <h3>Oversease Payment support coming soon</h3> 
-           <Footer/>
+           <div className="fixed-bottom">
+          <Footer/>
+          </div>
         </div>
     )
 }
